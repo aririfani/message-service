@@ -8,6 +8,7 @@ import (
 	"flag"
 	"os"
 
+	"github.com/aririfani/message-service/internal/bootstrap"
 	"github.com/aririfani/message-service/internal/message"
 	"github.com/aririfani/message-service/internal/service"
 	"github.com/spf13/cobra"
@@ -35,6 +36,15 @@ to quickly create a Cobra application.`,
 	},
 }
 
+var runBroker = &cobra.Command{
+	Use:   "broker:up",
+	Short: "broker up",
+	Long:  `Broker up command`,
+	Run: func(cmd *cobra.Command, args []string) {
+		bootstrap.Run()
+	},
+}
+
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
@@ -53,6 +63,7 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
+	rootCmd.AddCommand(runBroker)
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 

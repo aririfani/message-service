@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 
 	"github.com/aririfani/message-service/internal/message"
+	"github.com/aririfani/message-service/internal/topicinit"
 	"github.com/lovoo/goka"
-	"github.com/lovoo/goka/examples/3-messaging/topicinit"
 )
 
 const maxMessages = 5
